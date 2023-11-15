@@ -1,0 +1,20 @@
+﻿services:
+#  4952-project:
+#    container_name: InterArchLab6
+#    image: 4952-project
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    depends_on: 
+#      - mariadb
+#  
+  mariadb:
+    container_name: pokerdb
+    ports:
+      - '5006:3306'
+    environment:
+      - MARIADB_ROOT_PASSWORD=pw
+    image: 'mariadb:latest'
+    restart: always
+    volumes:
+      - ./root_queries.sql:/docker-entrypoint-initdb.d/root_queries.sql
