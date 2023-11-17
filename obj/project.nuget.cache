@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Ouz71OrWVrCOouzxbDp/HiYSnHwyMc9zW8rdvkV/E6JTnQkSY9Ce0X2bFoN+ALs4aTFxl0Cwo3gw8nMZ462CfQ==",
+  "dgSpecHash": "WChAmkAMtD6t84RiegXFL0sF9OwOGFxY/IfbYHz7L3NtViTqEOalZDzJs6Dg+kaVZhz4pcoWbxf8XFePaNIqDg==",
   "success": true,
   "projectFilePath": "/home/jack/semester 4.5/Poker-Project/Poker-Project.csproj",
   "expectedPackageFiles": [
@@ -50,6 +50,8 @@
     "/home/jack/.nuget/packages/microsoft.sqlserver.server/1.0.0/microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "/home/jack/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "/home/jack/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/home/jack/.nuget/packages/mysqlconnector/2.2.5/mysqlconnector.2.2.5.nupkg.sha512",
+    "/home/jack/.nuget/packages/pomelo.entityframeworkcore.mysql/7.0.0/pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "/home/jack/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/home/jack/.nuget/packages/system.configuration.configurationmanager/6.0.1/system.configuration.configurationmanager.6.0.1.nupkg.sha512",
     "/home/jack/.nuget/packages/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
