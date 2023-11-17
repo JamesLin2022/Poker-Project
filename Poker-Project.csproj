@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-Poker_Project-dc86b761-bc34-429d-9ee1-ec4951bc5993</UserSecretsId>
+    <UserSecretsId>aspnet-Poker_Project-d8cd7b05-764c-4729-b19c-0cd16b5bbf19</UserSecretsId>
     <RootNamespace>Poker_Project</RootNamespace>
   </PropertyGroup>
 
@@ -14,9 +14,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.13" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
-    <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.10" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
   </ItemGroup>
 
 </Project>
