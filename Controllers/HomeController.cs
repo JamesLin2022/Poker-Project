@@ -23,6 +23,11 @@ public class HomeController : Controller
     {
         return View();
     }
+
+    public IActionResult WinGame()
+    {
+        return View();
+    }
     
     [Authorize]
     public IActionResult GameHistory()

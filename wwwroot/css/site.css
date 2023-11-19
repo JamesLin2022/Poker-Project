@@ -26,6 +26,16 @@ button {
   transform: translateX(33%);
 }
 
+#win-img {
+  width: 50%;
+  height: 33%;
+}
+
+#next-page2 {
+  color: black;
+  text-decoration: none;
+}
+
 #card {
   margin: 10px;
   width: 60px;
