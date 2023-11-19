@@ -6,5 +6,12 @@
     <img id="win-img" src="../img/fireworks.png"/>
     <h1>@ViewData["Title"]</h1>
     <h1>Login to track your wins!</h1>
-    
+    <div style="margin: 20px">
+        <div style="margin-right: 50px; display: inline-block">
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Home")'">Go Home</button>
+        </div>
+        <div style="display: inline-block">
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("StartGame", "Home")'">New Game</button>
+        </div>
+    </div>
 </div>
