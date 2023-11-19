@@ -2,6 +2,29 @@ html {
   font-size: 14px;
 }
 
+body {
+  background-color: forestgreen;
+}
+
+h1 {
+  color:white;
+}
+
+.game-container {
+  background-color: darkgreen;
+  height: 25em;
+}
+
+.player-container {
+  display: inline-block;
+}
+
+#card {
+  margin: 10px;
+  width: 60px;
+  height: 90px
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;

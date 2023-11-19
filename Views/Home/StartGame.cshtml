@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Single Player Game";
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="game-container">
+        <div class="player-container" id="opponent">
+            <div class="money" id="opponent">
+
+            </div>
+            <div class="hand" id="opponent">
+                <img id="card" src="../img/cards/back.png"/>
+                <img id="card" src="../img/cards/back.png"/>
+            </div>  
+            <div class="choice" id="opponent">
+
+            </div> 
+        </div>
+        <div class="shared-container">
+            <div class="cards">
+                <img id="card" src="../img/cards/q-s.png"/>
+                <img id="card" src="../img/cards/j-s.png"/>
+                <img id="card" src="../img/cards/t-s.png"/>
+                <img id="card" src="../img/cards/9-s.png"/>
+                <img id="card" src="../img/cards/back.png"/>
+            </div> 
+        </div>
+        <div class="player-container" id="player">
+            <div class="money" id="player">
+                <img id="card" src="../img/cards/a-s.png"/>
+                <img id="card" src="../img/cards/k-s.png"/>
+            </div>
+            <div class="hand" id="player">
+
+            </div> 
+            <div class="choices" id="player">
+
+            </div> 
+        </div>
+    </div>
+</div>
