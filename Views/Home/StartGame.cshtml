@@ -7,16 +7,20 @@
 
     <div class="game-container">
         <div class="player-container" id="opponent">
-            <div class="money" id="opponent">
-
+            <div class="money block" id="opponent">
+                <button type="button" class="btn btn-secondary btn-lg">CASH: $0</button>
             </div>
-            <div class="hand" id="opponent">
+            
+            <div class="hand block" id="opponent">
                 <img id="card" src="../img/cards/back.png"/>
                 <img id="card" src="../img/cards/back.png"/>
             </div>  
-            <div class="choice" id="opponent">
-
+            <div class="choice block" id="opponent">
+                <button type="button" class="btn btn-success btn-lg">BET: $1000</button>
             </div> 
+        </div>
+        <div class="hand" id="opponent-hand">
+
         </div>
         <div class="shared-container">
             <div class="cards">
@@ -26,18 +30,24 @@
                 <img id="card" src="../img/cards/9-s.png"/>
                 <img id="card" src="../img/cards/back.png"/>
             </div> 
+            <button type="button" class="btn btn-info btn-lg">POT: $1000</button>
+        </div>
+        <div class="hand" id="player-hand">
+
         </div>
         <div class="player-container" id="player">
-            <div class="money" id="player">
+            <div class="money block" id="player">
+                <button type="button" class="btn btn-primary btn-lg">CASH: $0</button>
+            </div>
+            <div class="hand block" id="player">
                 <img id="card" src="../img/cards/a-s.png"/>
                 <img id="card" src="../img/cards/k-s.png"/>
-            </div>
-            <div class="hand" id="player">
-
             </div> 
-            <div class="choices" id="player">
-
+            <div class="choices block" id="player">
+                    <button type="button" class="btn btn-success btn-lg" id="win">BET: $1000</button>
+                    <button type="button" class="btn btn-danger btn-lg">FOLD</button>
             </div> 
         </div>
     </div>
 </div>
+<script src="../js/startgame.js"></script>

@@ -10,13 +10,20 @@ h1 {
   color:white;
 }
 
-.game-container {
-  background-color: darkgreen;
-  height: 25em;
+button {
+  padding: 5px;
 }
 
-.player-container {
+.game-container {
+  background-color: darkgreen;
+}
+
+.block {
   display: inline-block;
+}
+
+.player-container #player {
+  transform: translateX(33%);
 }
 
 #card {
