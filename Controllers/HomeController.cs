@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Poker_Project.Models;
 
@@ -19,6 +20,17 @@ public class HomeController : Controller
     }
 
     public IActionResult StartGame()
+    {
+        return View();
+    }
+    
+    [Authorize]
+    public IActionResult GameHistory()
+    {
+        return View();
+    }
+    
+    public IActionResult Privacy()
     {
         return View();
     }

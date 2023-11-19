@@ -50,3 +50,25 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  color: whitesmoke;
+  width: 100%;
+  height: 10%;
+  background-color: #22768b;
+  
+}
+
+#footer_link:link, #footer_link:visited {
+  color: lightblue;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+#footer_link:hover, #footer_link:active {
+  color: #3dd5f3;
+}
