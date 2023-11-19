@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hIwFoHpZiuHjKb9K+Ebd2mLYfwFKvGMww4UBl01ZUuc=",
+  "Hash": "Of9D/cbvgiNWg9mYAlzea9BSBxtxV5l1zYvLrW8pFgU=",
   "Source": "Poker-Project",
   "BasePath": "_content/Poker-Project",
   "Mode": "Default",
@@ -1324,6 +1324,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\Asus\\Documents\\4952\\4952-project\\wwwroot\\js\\startgame.js",
+      "SourceId": "Poker-Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Asus\\Documents\\4952\\4952-project\\wwwroot\\",
+      "BasePath": "_content/Poker-Project",
+      "RelativePath": "js/startgame.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\startgame.js"
     },
     {
       "Identity": "C:\\Users\\Asus\\Documents\\4952\\4952-project\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",

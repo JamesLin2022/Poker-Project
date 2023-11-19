@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "C:\\Users\\Asus\\Documents\\4952\\4952-project\\wwwroot\\js\\startgame.js",
+      "PackagePath": "staticwebassets\\js\\startgame.js"
+    },
+    {
       "Id": "C:\\Users\\Asus\\Documents\\4952\\4952-project\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
