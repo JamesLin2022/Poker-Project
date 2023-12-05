@@ -201,9 +201,10 @@ function updateGameState() {
                 document.getElementById("next-page").innerHTML = "NEXT ROUND";
                 document.getElementById("next-page").onclick = function() {dealCards()};
                 betButton.disabled = true;
+                updateCashDisplays();
             }
         }
-        updateCashDisplays();
+        
     } else {
         // Handle game state when all cards are revealed (optional)
         alert("All cards revealed");
