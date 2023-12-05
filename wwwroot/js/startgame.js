@@ -67,6 +67,16 @@ betButton.addEventListener("click", () => {
     }
 });
 
+foldButton.addEventListener("click", () => {
+    playerMsg.innerHTML = `Player (FOLDED)`;
+    opponentMsg.innerHTML = `Opponent (WINNER)`;
+    opponentCash += pot;
+
+    document.getElementById("next-page").innerHTML = "NEXT ROUND";
+    document.getElementById("next-page").onclick = function() {dealCards()};
+    betButton.disabled = true;
+});
+
 // Function to deal cards to the player and opponent
 function dealCards() {
     betButton.disabled = false;
@@ -193,6 +203,7 @@ function updateGameState() {
                 betButton.disabled = true;
             }
         }
+        updateCashDisplays();
     } else {
         // Handle game state when all cards are revealed (optional)
         alert("All cards revealed");

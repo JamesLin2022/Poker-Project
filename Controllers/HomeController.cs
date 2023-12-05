@@ -44,6 +44,7 @@ public class HomeController : Controller
             _dbContext.SaveChanges();
             return View();
         } catch (Exception e) {
+            Console.WriteLine("Error");
             return View();
         }
     }
