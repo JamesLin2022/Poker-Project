@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 using Poker_Project.Data;
 using Poker_Project.Models;
 
@@ -14,8 +15,8 @@ public class HomeController : Controller
     private readonly ILogger<HomeController> _logger;
     private readonly UserManager<AppUser> _userManager;
     private readonly ApplicationDbContext _dbContext;
-    
-    
+
+
     public HomeController(ApplicationDbContext context, ILogger<HomeController> logger, UserManager<AppUser> userManager)
     {
         _userManager = userManager;
@@ -35,34 +36,120 @@ public class HomeController : Controller
 
     public async Task<IActionResult> WinGame()
     {
-        try {
+        try
+        {
             var id = _userManager.GetUserId(User);
             var user = await _userManager.GetUserAsync(User);
             Console.WriteLine(user.Email);
             var dbuser = _dbContext.Users.FirstOrDefault(u => u.Id == user.Id);
+            if (dbuser == null)
+            {
+                return View();
+            }
             dbuser.Xp += 10;
+            if (dbuser.GameHistory == null)
+            {
+                dbuser.GameHistory = new GameHistory();
+            }
+            if (dbuser.GameHistory.Games == null || dbuser.GameHistory.Games.Count == 0)
+            {
+                dbuser.GameHistory.Games = new List<Game>();
+            }
+            Game game = new Game
+            {
+                Winner = true,
+                DateComplete = DateTime.UtcNow,
+                Hands = null,
+                Ai = new Ai
+                {
+                    Difficulty = 1
+                }
+            };
+            dbuser.GameHistory.Games.Add(game);
             _dbContext.SaveChanges();
-            return View();
-        } catch (Exception e) {
-            Console.WriteLine("Error");
-            return View();
         }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        return View();
     }
 
     public async Task<IActionResult> LoseGame()
     {
+        try
+        {
+            var id = _userManager.GetUserId(User);
+            var user = await _userManager.GetUserAsync(User);
+            Console.WriteLine(user.Email);
+            var dbuser = _dbContext.Users.FirstOrDefault(u => u.Id == user.Id);
+            if (dbuser == null)
+            {
+                return View();
+            }
+            dbuser.Xp -= 5;
+            if (dbuser.GameHistory == null)
+            {
+                dbuser.GameHistory = new GameHistory();
+            }
+            if (dbuser.GameHistory.Games == null || dbuser.GameHistory.Games.Count == 0)
+            {
+                dbuser.GameHistory.Games = new List<Game>();
+            }
+            Game game = new Game
+            {
+                Winner = false,
+                DateComplete = DateTime.UtcNow,
+                Hands = null,
+                Ai = new Ai
+                {
+                    Difficulty = 1
+                }
+            };
+            dbuser.GameHistory.Games.Add(game);
+            _dbContext.SaveChanges();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
         return View();
     }
-    
+
     [Authorize]
     public async Task<IActionResult> GameHistory()
     {
-        var id = _userManager.GetUserId(User);
+        try {
+            var id = _userManager.GetUserId(User);
         var user = await _userManager.GetUserAsync(User);
+
+        if (user == null)
+        {
+            return View();
+        }
+
         ViewData["xp"] = user.Xp;
-        return View();
+
+        var dbuser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
+
+        if (dbuser == null || dbuser.GameHistory == null || dbuser.GameHistory.Games == null || dbuser.GameHistory.Games.Count == 0)
+        {
+            return View();
+        }
+
+        dbuser.Xp += 10;
+
+        IEnumerable<Game> games = dbuser.GameHistory.Games;
+        return View(games);
+        } catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return View();
+        }
+        
     }
-    
+
+
     public IActionResult Privacy()
     {
         return View();

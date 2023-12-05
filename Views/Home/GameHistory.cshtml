@@ -1,58 +1,28 @@
-@{
-    ViewData["Title"] = "Game History";
-}
+@model IList<Poker_Project.Models.Game>;
 
 <div class="text-center">
-
     <h1 class="display-4">@ViewData["Title"]</h1>
     <div>
-        <br/>
+        <br />
         <table class="table table-striped">
             <thead style="background-color: #0a2a0a; color: #f0ffff">
-            <tr>
-                <th>#</th>
-                <th>Date and Time</th>
-                <th>Difficulty (easy, moderate, difficult)</th>
-                <th>Winner</th>
-            </tr>
+                <tr>
+                    <th>#</th>
+                    <th>Date and Time</th>
+                    <th>Difficulty (easy, moderate, difficult)</th>
+                    <th>Winner</th>
+                </tr>
             </thead>
             <tbody style="background-color: #f0ffff">
-            <tr>
-                <td>1</td>
-                <td>Nov 12, 2023</td>
-                <td>easy</td>
-                <td>AI</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Nov 12, 2023</td>
-                <td>easy</td>
-                <td>You</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Nov 13, 2023</td>
-                <td>easy</td>
-                <td>You</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Nov 14, 2023</td>
-                <td>easy</td>
-                <td>You</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Nov 14, 2023</td>
-                <td>moderate</td>
-                <td>AI</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Nov 15, 2023</td>
-                <td>moderate</td>
-                <td>AI</td>
-            </tr>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].DateComplete.ToString("MMM dd, yyyy")</td>
+                        <td>@Model[i].Ai?.Difficulty</td>
+                        <td>@(Model[i].Winner ? "You" : "AI")</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
