@@ -11,7 +11,7 @@ using Poker_Project.Data;
 namespace Poker_Project.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231119062516_M1")]
+    [Migration("20231205190145_M1")]
     partial class M1
     {
         /// <inheritdoc />
@@ -249,8 +249,11 @@ namespace Poker_Project.Data.Migrations
                     b.Property<int?>("HandId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Suit")
+                        .HasColumnType("varchar(1)");
+
                     b.Property<string>("Value")
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(1)");
 
                     b.HasKey("Id");
 
@@ -305,6 +308,9 @@ namespace Poker_Project.Data.Migrations
 
                     b.Property<int?>("GameId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Rank")
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
