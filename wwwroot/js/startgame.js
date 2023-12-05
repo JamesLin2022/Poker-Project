@@ -174,17 +174,17 @@ function updateGameState() {
             let result = playerHand.compareRank(opponentHand);
 
             if (result > 0) {
-                playerMsg.innerHTML = `Player:${playerHand.rank} (WINNER)`;
-                opponentMsg.innerHTML = `Opponent:${opponentHand.rank}`;
+                playerMsg.innerHTML = `Player: ${playerHand.rank} (WINNER)`;
+                opponentMsg.innerHTML = `Opponent: ${opponentHand.rank}`;
                 playerCash += pot;
 
             } else if (result < 0) {
-                playerMsg.innerHTML = `Player:${playerHand.rank}`;
-                opponentMsg.innerHTML = `Opponent:${opponentHand.rank} (WINNER)`;
+                playerMsg.innerHTML = `Player: ${playerHand.rank}`;
+                opponentMsg.innerHTML = `Opponent: ${opponentHand.rank} (WINNER)`;
                 opponentCash += pot;
             } else {
-                playerMsg.innerHTML = `Player:${playerHand.rank} (TIE)`;
-                opponentMsg.innerHTML = `Opponent:${opponentHand.rank} (TIE)`;
+                playerMsg.innerHTML = `Player: ${playerHand.rank} (TIE)`;
+                opponentMsg.innerHTML = `Opponent: ${opponentHand.rank} (TIE)`;
                 playerCash += pot/2;
                 opponentCash += pot/2;
             }
@@ -198,10 +198,11 @@ function updateGameState() {
                 document.getElementById("next-page").onclick = "location.href='@Url.Action(`WinGame`,`Home`)'";
                 betButton.disabled = true;
             } else {
+                updateCashDisplays();
                 document.getElementById("next-page").innerHTML = "NEXT ROUND";
                 document.getElementById("next-page").onclick = function() {dealCards()};
                 betButton.disabled = true;
-                updateCashDisplays();
+                
             }
         }
         
