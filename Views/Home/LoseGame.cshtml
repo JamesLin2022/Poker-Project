@@ -1,0 +1,21 @@
+@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "You lose!";
+}
+
+<div class="text-center">
+    <img id="lose-img" src="../img/rain.png"/>
+    <h1>@ViewData["Title"]</h1>
+    <h3>Try again</h3>
+    <div style="margin: 20px">
+        <div style="margin-right: 50px; display: inline-block">
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Home")'">Go Home</button>
+        </div>
+        <div style="display: inline-block">
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("StartGame", "Home")'">New Game</button>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/WinGame.js"></script>

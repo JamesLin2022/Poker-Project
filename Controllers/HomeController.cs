@@ -35,12 +35,21 @@ public class HomeController : Controller
 
     public async Task<IActionResult> WinGame()
     {
-        var id = _userManager.GetUserId(User);
-        var user = await _userManager.GetUserAsync(User);
-        Console.WriteLine(user.Email);
-        var dbuser = _dbContext.Users.FirstOrDefault(u => u.Id == user.Id);
-        dbuser.Xp += 10;
-        _dbContext.SaveChanges();
+        try {
+            var id = _userManager.GetUserId(User);
+            var user = await _userManager.GetUserAsync(User);
+            Console.WriteLine(user.Email);
+            var dbuser = _dbContext.Users.FirstOrDefault(u => u.Id == user.Id);
+            dbuser.Xp += 10;
+            _dbContext.SaveChanges();
+            return View();
+        } catch (Exception e) {
+            return View();
+        }
+    }
+
+    public async Task<IActionResult> LoseGame()
+    {
         return View();
     }
     

@@ -16,17 +16,31 @@ button {
 
 .game-container {
   background-color: darkgreen;
+  padding: 2em;
 }
 
 .block {
   display: inline-block;
 }
 
-.player-container #player {
-  transform: translateX(33%);
+.shared-container {
+  padding: 0.75em;
+}
+
+h3 {
+  color: white;
+}
+
+.player-button {
+  margin: 0.75em;
 }
 
 #win-img {
+  width: 50%;
+  height: 33%;
+}
+
+#lose-img {
   width: 50%;
   height: 33%;
 }
@@ -36,10 +50,16 @@ button {
   text-decoration: none;
 }
 
-#card {
+.cards {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
   margin: 10px;
   width: 60px;
-  height: 90px
+  height: 90px;
+  display: block;
 }
 
 @media (min-width: 768px) {

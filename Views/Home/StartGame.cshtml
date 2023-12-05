@@ -6,48 +6,63 @@
     <h1>@ViewData["Title"]</h1>
 
     <div class="game-container">
-        <div class="player-container" id="opponent">
-            <div class="money block" id="opponent">
-                <button type="button" class="btn btn-secondary btn-lg">CASH: $0</button>
+        <div class="row">
+            <div class="player-container container" id="opponent">
+                <div class="col-md-3 money block" id="opponent">
+                    <div class="btn-secondary btn-lg" id="opponentCash">CASH: $0</div>
+                </div>
+                <div class="col-md-3 hand block" id="opponent">
+                    <h3 id="opponent-msg"></h3>
+                    <div class="cards">
+                        <img class="card" id="o-one" src="../img/cards/back.png" />
+                        <img class="card" id="o-two" src="../img/cards/back.png" />
+                    </div>
+                </div>
+                <div class="col-md-3 choice block" id="opponent">
+                    <div class="row">
+                        <div class="col">
+                            <div class="btn-success btn-lg">BET: 1000</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="hand block" id="opponent">
-                <img class="o-one" id="card" src="../img/cards/back.png"/>
-                <img class="o-two" id="card" src="../img/cards/back.png"/>
-            </div>  
-            <div class="choice block" id="opponent">
-                <button type="button" class="btn btn-success btn-lg">BET: $1000</button>
-            </div> 
-        </div>
-        <div class="hand" id="opponent-hand">
-
         </div>
         <div class="shared-container">
             <div class="cards">
-                <img class="s-one" id="card" src="../img/cards/q-s.png"/>
-                <img class="s-two" id="card" src="../img/cards/j-s.png"/>
-                <img class="s-three" id="card" src="../img/cards/t-s.png"/>
-                <img class="s-four" id="card" src="../img/cards/9-s.png"/>
-                <img class="s-five" id="card" src="../img/cards/back.png"/>
-            </div> 
+                <img class="card" id="s-one" src="../img/cards/back.png" />
+                <img class="card" id="s-two" src="../img/cards/back.png" />
+                <img class="card" id="s-three" src="../img/cards/back.png" />
+                <img class="card" id="s-four" src="../img/cards/back.png" />
+                <img class="card" id="s-five" src="../img/cards/back.png" />
+            </div>
             <button type="button" class="btn btn-info btn-lg" id="next-page">POT: $1000</button>
         </div>
-        <div class="hand" id="player-hand">
-
-        </div>
-        <div class="player-container" id="player">
-            <div class="money block" id="player">
-                <button type="button" class="btn btn-primary btn-lg">CASH: $0</button>
+        <div class="row">
+            <div class="player-container container" id="player">
+                <div class="col-md-3 money block" id="player">
+                    <div class="btn-primary btn-lg" id="playerCash">CASH: $0</div>
+                </div>
+                <div class="col-md-3 hand block" id="player">
+                    <h3 id="player-msg"></h3>
+                    <div class="cards">
+                        <img class="card" id="p-one" src="../img/cards/back.png" />
+                        <img class="card" id="p-two" src="../img/cards/back.png" />
+                    </div>
+                </div>
+                <div class="col-md-3 row choices block" id="player">
+                    <div class="row bet block">
+                        <div class="col">
+                            <input type="number" class="form-control" id="player-bet" value="100" min="100" step="50" />
+                        </div>
+                        <div class="col">
+                            <div type="button" class="btn btn-success btn-lg player-button" id="bet">BET</div>
+                            <div type="button" class="btn btn-danger btn-lg player-button" id="fold">FOLD</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="hand block" id="player">
-                <img id="card" src="../img/cards/a-s.png"/>
-                <img id="card" src="../img/cards/k-s.png"/>
-            </div> 
-            <div class="choices block" id="player">
-                    <button type="button" class="btn btn-success btn-lg" id="win">BET: $1000</button>
-                    <button type="button" class="btn btn-danger btn-lg">FOLD</button>
-            </div> 
         </div>
     </div>
 </div>
-<script src="../js/startgame.js"></script>
+</div>
+<script type="module" src="../js/startgame.js"></script>
