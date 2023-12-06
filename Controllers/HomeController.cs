@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Protocol;
 using Poker_Project.Data;
 using Poker_Project.Models;
 
@@ -41,7 +42,7 @@ public class HomeController : Controller
             var id = _userManager.GetUserId(User);
             var user = await _userManager.GetUserAsync(User);
             Console.WriteLine(user.Email);
-            var dbuser = _dbContext.Users.FirstOrDefault(u => u.Id == user.Id);
+            var dbuser = await _dbContext.Users.Include(u => u.GameHistory).ThenInclude(g => g.Games).ThenInclude(g => g.Ai).FirstOrDefaultAsync(u => u.Id == user.Id);
             if (dbuser == null)
             {
                 return View();
@@ -82,7 +83,7 @@ public class HomeController : Controller
             var id = _userManager.GetUserId(User);
             var user = await _userManager.GetUserAsync(User);
             Console.WriteLine(user.Email);
-            var dbuser = _dbContext.Users.FirstOrDefault(u => u.Id == user.Id);
+            var dbuser = await _dbContext.Users.Include(u => u.GameHistory).ThenInclude(g => g.Games).ThenInclude(g => g.Ai).FirstOrDefaultAsync(u => u.Id == user.Id);
             if (dbuser == null)
             {
                 return View();
@@ -119,34 +120,57 @@ public class HomeController : Controller
     [Authorize]
     public async Task<IActionResult> GameHistory()
     {
-        try {
+        try
+        {
             var id = _userManager.GetUserId(User);
-        var user = await _userManager.GetUserAsync(User);
+            var user = await _userManager.GetUserAsync(User);
 
-        if (user == null)
-        {
-            return View();
+            if (user == null)
+            {
+                return View(new List<Game>());
+            }
+
+            ViewData["xp"] = user.Xp;
+
+            var dbuser = await _dbContext.Users.Include(u => u.GameHistory).ThenInclude(g => g.Games).ThenInclude(g => g.Ai).FirstOrDefaultAsync(u => u.Id == user.Id);
+
+            if (dbuser == null)
+            {
+                Console.WriteLine("dbuser is null");
+                return View(new List<Game>());
+            }
+            Console.WriteLine(dbuser.GameHistory.Games.ToJson());
+            Console.WriteLine(dbuser.GameHistory.Games.Count);
+            Console.WriteLine(dbuser.GameHistory.Games[0].Ai.Difficulty);
+            if (dbuser.GameHistory == null)
+            {
+                Console.WriteLine("dbuser.GameHistory is null");
+                return View(new List<Game>());
+            }
+
+            if (dbuser.GameHistory.Games == null)
+            {
+                Console.WriteLine("dbuser.GameHistory.Games is null");
+                return View(new List<Game>());
+            }
+
+            if (dbuser.GameHistory.Games.Count == 0)
+            {
+                Console.WriteLine("dbuser.GameHistory.Games.Count is 0");
+                return View(new List<Game>());
+            }
+
+
+
+            IEnumerable<Game> games = dbuser.GameHistory.Games;
+            return View(games);
         }
-
-        ViewData["xp"] = user.Xp;
-
-        var dbuser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
-
-        if (dbuser == null || dbuser.GameHistory == null || dbuser.GameHistory.Games == null || dbuser.GameHistory.Games.Count == 0)
-        {
-            return View();
-        }
-
-        dbuser.Xp += 10;
-
-        IEnumerable<Game> games = dbuser.GameHistory.Games;
-        return View(games);
-        } catch (Exception e)
+        catch (Exception e)
         {
             Console.WriteLine(e.Message);
-            return View();
+            return View(new List<Game>());
         }
-        
+
     }
 
 
