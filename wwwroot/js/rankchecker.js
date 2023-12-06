@@ -76,7 +76,7 @@ class RankChecker {
         // Count the occurrences of each card value
         hand.cards.forEach(card => {
             const suit = card.suit;
-            valueCountMap.set(suit, (valueCountMap.get(suit) || 0) + 1);
+            suitCountMap.set(suit, (suitCountMap.get(suit) || 0) + 1);
         });
 
         const suits = Array.from(suitCountMap.values());
