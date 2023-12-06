@@ -264,6 +264,8 @@ namespace Poker_Project.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Rank = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     GameId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -283,7 +285,9 @@ namespace Poker_Project.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Value = table.Column<string>(type: "longtext", nullable: true)
+                    Value = table.Column<string>(type: "varchar(1)", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Suit = table.Column<string>(type: "varchar(1)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     HandId = table.Column<int>(type: "int", nullable: true)
                 },

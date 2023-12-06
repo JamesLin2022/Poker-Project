@@ -71,15 +71,21 @@ class RankChecker {
 
     // Method to check if the hand is a flush
     static isFlush(hand) {
-        const firstSuit = hand.cards[0].suit;
+        const suitCountMap = new Map();
 
-        // Check if all cards have the same suit as the first card
-        const isFlush = hand.cards.every(card => card.suit === firstSuit);
+        // Count the occurrences of each card value
+        hand.cards.forEach(card => {
+            const suit = card.suit;
+            valueCountMap.set(suit, (valueCountMap.get(suit) || 0) + 1);
+        });
 
-        // Get the lowest value in the flush
-        const A = isFlush ? '23456789tjqka'.indexOf(hand.cards[0].value) : null;
+        const suits = Array.from(suitCountMap.values());
 
-        return isFlush ? { isFlush, A } : false;
+        if (suits.includes(4)) {
+            return { isFlush: true, A: '23456789tjqka'.indexOf(hand.cards[0].value) }
+        }
+
+        return false;
     }
 
     // Method to check if the hand is a straight
