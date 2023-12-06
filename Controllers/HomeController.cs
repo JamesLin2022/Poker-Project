@@ -35,6 +35,11 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult HowToPlay()
+    {
+        return View();
+    }
+
     public async Task<IActionResult> WinGame()
     {
         try
