@@ -81,7 +81,7 @@ class RankChecker {
 
         const suits = Array.from(suitCountMap.values());
 
-        if (suits.includes(4)) {
+        if (suits.includes(5)) {
             return { isFlush: true, A: '23456789tjqka'.indexOf(hand.cards[0].value) }
         }
 
